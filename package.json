@@ -7,9 +7,9 @@
     "start": "node server.js",
     "dev": "node server.js"
   },
-  "homepage": "WEBSITE_URL_HERE",
+  "homepage": "https://mortis-deathdate.vercel.app/",
   "config": {
-    "_IMPORTANT_": "Replace WEBSITE_URL_HERE above with your deployed Vercel URL (e.g. https://mortis.vercel.app). This URL is used in share cards, OG metadata, and social sharing."
+    "_IMPORTANT_": "Replace https://mortis-deathdate.vercel.app/ above with your deployed Vercel URL (e.g. https://mortis.vercel.app). This URL is used in share cards, OG metadata, and social sharing."
   },
   "dependencies": {
     "express": "^4.18.2",
