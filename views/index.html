@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MORTIS — Lifespan Trajectory Simulator</title>
+  <meta name="description" content="MORTIS — An atmospheric AI-powered fictional lifespan trajectory simulator. Not a prediction. Not medical advice. A mirror." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="MORTIS — When Will You Die?" />
+  <meta property="og:description" content="An AI-powered fictional lifespan trajectory analysis. Atmospheric. Cinematic. Unsettling. Not medical advice." />
+  <meta property="og:url" content="WEBSITE_URL_HERE" />
+  <meta property="og:image" content="WEBSITE_URL_HERE/og-image.png" />
+  <meta property="og:site_name" content="MORTIS" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MORTIS — When Will You Die?" />
+  <meta name="twitter:description" content="An AI-powered fictional lifespan trajectory analysis. Not medical advice." />
+  <meta name="twitter:image" content="WEBSITE_URL_HERE/og-image.png" />
+
+  <meta name="theme-color" content="#0d0f15" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syne:wght@400;500;700;800&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <!-- ── AMBIENT AUDIO ───────────────────────────────────────── -->
+  <div id="audio-controls">
+    <button id="mute-btn" aria-label="Toggle ambient sound">
+      <span id="mute-icon">♪</span>
+      <span id="mute-label">AMBIENT</span>
+    </button>
+  </div>
+
+  <!-- ── ATMOSPHERIC BACKGROUND ─────────────────────────────── -->
+  <div id="bg-scene">
+    <div id="bg-image"></div>
+    <div id="fog-layer-1" class="fog-layer"></div>
+    <div id="fog-layer-2" class="fog-layer"></div>
+    <div id="fog-layer-3" class="fog-layer"></div>
+    <div id="fog-layer-4" class="fog-layer"></div>
+    <div id="moon-glow"></div>
+    <div id="ambient-glow"></div>
+    <canvas id="particles-canvas"></canvas>
+    <div id="vignette"></div>
+  </div>
+
+  <!-- ── PAGE 1: LANDING ────────────────────────────────────── -->
+  <section id="page-landing" class="page active">
+    <div class="page-inner">
+      <div class="landing-content">
+        <div class="mortis-sigil">✦</div>
+        <p class="system-label">MORTIS SYSTEM v2.5 · FICTIONAL SIMULATION</p>
+        <h1 class="main-title">When Will<br/>You Die?</h1>
+        <p class="subtitle">An AI-powered fictional lifespan trajectory analysis.<br/>Not a prediction. Not medical advice. A mirror.</p>
+        <div class="disclaimer-pill">⚠ Fictional experience · Not scientifically accurate · Not medical advice</div>
+        <button class="btn-primary" id="btn-begin">
+          <span>Begin Examination</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <p class="landing-footer">Enter only if you accept this is fiction.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PAGE 2: TERMS & DISCLAIMER ────────────────────────── -->
+  <section id="page-terms" class="page">
+    <div class="page-inner">
+      <div class="glass-card terms-card">
+        <div class="card-header">
+          <span class="card-tag">REQUIRED ACKNOWLEDGMENT</span>
+          <h2>Before You Proceed</h2>
+        </div>
+        <div class="terms-body">
+          <div class="term-item">
+            <span class="term-icon">◈</span>
+            <p><strong>Fictional Experience Only.</strong> MORTIS is a creative storytelling engine. Every projection, date, and analysis is generated fiction — not science, statistics, or reality.</p>
+          </div>
+          <div class="term-item">
+            <span class="term-icon">◈</span>
+            <p><strong>Not Medical Advice.</strong> Nothing here constitutes, replaces, or imitates medical, psychological, or health professional advice. Consult real professionals for health concerns.</p>
+          </div>
+          <div class="term-item">
+            <span class="term-icon">◈</span>
+            <p><strong>No Real Prediction.</strong> The system cannot and does not predict death. Accidents, genetics, chance, environment, and countless unknown variables are entirely excluded.</p>
+          </div>
+          <div class="term-item">
+            <span class="term-icon">◈</span>
+            <p><strong>Mental Health Notice.</strong> If you are experiencing distress, anxiety about mortality, or mental health difficulties — please close this page and speak with someone you trust or a professional.</p>
+          </div>
+          <div class="term-item">
+            <span class="term-icon">◈</span>
+            <p><strong>Data Privacy.</strong> Your answers are processed in your session only and used solely to generate your fictional result. Nothing is stored on external servers.</p>
+          </div>
+        </div>
+        <label class="checkbox-label" id="terms-checkbox-wrap">
+          <input type="checkbox" id="terms-checkbox" />
+          <span class="checkbox-custom"></span>
+          <span>I understand this is entirely fictional and not medical advice. I am of sound mind and proceed of my own free will.</span>
+        </label>
+        <button class="btn-primary" id="btn-terms-continue" disabled>
+          <span>I Understand. Proceed.</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PAGE 3: NICKNAME ───────────────────────────────────── -->
+  <section id="page-nickname" class="page">
+    <div class="page-inner">
+      <div class="glass-card nickname-card">
+        <div class="card-header">
+          <span class="card-tag">IDENTIFICATION</span>
+          <h2>How Shall the Oracle Address You?</h2>
+          <p class="card-subtitle">Enter a name or alias. It will appear in your result.</p>
+        </div>
+        <div class="input-group">
+          <input type="text" id="nickname-input" placeholder="Your name or alias..." maxlength="30" autocomplete="off" />
+          <label for="nickname-input">Name / Alias</label>
+        </div>
+        <button class="btn-primary" id="btn-nickname-continue">
+          <span>Enter the Chamber</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PAGE 4: EXAMINATION ────────────────────────────────── -->
+  <section id="page-exam" class="page">
+    <div class="page-inner">
+      <div class="exam-container">
+        <div class="progress-header">
+          <div class="progress-track">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <span class="progress-label" id="progress-label">Question 1 of 10</span>
+        </div>
+        <div class="glass-card question-card" id="question-card">
+          <div class="question-number" id="q-number">01</div>
+          <h2 class="question-text" id="q-text"></h2>
+          <p class="question-hint" id="q-hint"></p>
+          <div class="answer-zone" id="answer-zone"></div>
+          <div class="question-nav">
+            <button class="btn-ghost" id="btn-q-back">← Back</button>
+            <button class="btn-primary" id="btn-q-next">
+              <span id="btn-q-next-label">Continue</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PAGE 5: FOLLOW-UP QUESTIONS ───────────────────────── -->
+  <section id="page-followup" class="page">
+    <div class="page-inner">
+      <div class="glass-card followup-card">
+        <div class="card-header">
+          <span class="card-tag">ADDITIONAL BEHAVIORAL ANALYSIS REQUIRED</span>
+          <h2>The Oracle Has Noticed Something.</h2>
+          <p class="card-subtitle">A few additional observations are needed before the projection can be finalized.</p>
+        </div>
+        <div id="followup-questions-zone"></div>
+        <button class="btn-primary" id="btn-followup-submit">
+          <span>Finalize Examination</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PAGE 6: PROCESSING ─────────────────────────────────── -->
+  <section id="page-processing" class="page">
+    <div class="page-inner">
+      <div class="processing-container">
+        <div class="processing-sigil" id="proc-sigil">
+          <div class="sigil-ring ring-1"></div>
+          <div class="sigil-ring ring-2"></div>
+          <div class="sigil-ring ring-3"></div>
+          <div class="sigil-core">✦</div>
+        </div>
+        <h2 class="processing-title">Analyzing Your Trajectory</h2>
+        <p class="processing-message" id="proc-message">Initializing behavioral scan...</p>
+        <div class="proc-progress-bar">
+          <div class="proc-progress-fill" id="proc-progress"></div>
+        </div>
+        <p class="processing-disclaimer">Fictional simulation in progress</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PAGE 7: FULL RESULTS ───────────────────────────────── -->
+  <section id="page-results" class="page">
+    <div class="page-inner results-inner">
+
+      <!-- Dramatic reveal header -->
+      <div class="result-header">
+        <p class="result-system-tag">MORTIS TRAJECTORY REPORT · FICTIONAL</p>
+        <p class="result-name" id="result-name">SUBJECT: —</p>
+        <div class="result-date-reveal">
+          <p class="result-label">Your trajectory suggests a natural lifespan ending around</p>
+          <h1 class="result-death-date" id="result-death-date">—</h1>
+          <p class="result-lifespan" id="result-lifespan">Estimated lifespan: — years</p>
+        </div>
+        <div class="result-archetype" id="result-archetype">
+          <span class="archetype-label" id="archetype-label">—</span>
+          <p class="archetype-desc" id="archetype-desc">—</p>
+        </div>
+        <div class="fictional-banner">⚠ This is entirely fictional. Not a prediction. Not medical advice.</div>
+      </div>
+
+      <!-- Full Analysis Results Grid -->
+      <div class="results-grid">
+
+        <!-- Stress & Recovery -->
+        <div class="glass-card result-card" id="rc-stress">
+          <span class="rc-tag">STRESS & RECOVERY INDEX</span>
+          <div class="stress-meter-wrap">
+            <div class="stress-meter">
+              <div class="stress-fill" id="stress-fill"></div>
+            </div>
+            <div class="stress-labels">
+              <span>Low</span><span>Moderate</span><span>High</span><span>Critical</span>
+            </div>
+          </div>
+          <div class="stress-score-display">
+            <span class="stress-number" id="stress-number">—</span>
+            <span class="stress-label-display" id="stress-label-display">—</span>
+          </div>
+          <p class="result-body-text stress-recovery-text" id="stress-recovery-text">—</p>
+        </div>
+
+        <!-- Emotional Analysis -->
+        <div class="glass-card result-card" id="rc-emotional">
+          <span class="rc-tag">EMOTIONAL ANALYSIS</span>
+          <p id="emotional-text" class="result-body-text">—</p>
+        </div>
+
+        <!-- Behavioral Patterns -->
+        <div class="glass-card result-card" id="rc-behavioral">
+          <span class="rc-tag">BEHAVIORAL PATTERNS</span>
+          <p id="behavioral-text" class="result-body-text">—</p>
+        </div>
+
+        <!-- Lifestyle Interpretation -->
+        <div class="glass-card result-card" id="rc-lifestyle">
+          <span class="rc-tag">LIFESTYLE INTERPRETATION</span>
+          <p id="lifestyle-text" class="result-body-text">—</p>
+        </div>
+
+        <!-- Risk Factors -->
+        <div class="glass-card result-card" id="rc-risks">
+          <span class="rc-tag">IDENTIFIED RISK FACTORS</span>
+          <ul class="factor-list risk-list" id="risk-list"></ul>
+        </div>
+
+        <!-- Trajectory Strengths -->
+        <div class="glass-card result-card" id="rc-positive">
+          <span class="rc-tag">TRAJECTORY STRENGTHS</span>
+          <ul class="factor-list positive-list" id="positive-list"></ul>
+        </div>
+
+        <!-- Trajectory Projection -->
+        <div class="glass-card result-card wide-card" id="rc-trajectory">
+          <span class="rc-tag">TRAJECTORY PROJECTION</span>
+          <p id="trajectory-text" class="result-body-text">—</p>
+        </div>
+
+        <!-- Improvement Suggestions -->
+        <div class="glass-card result-card wide-card" id="rc-advice">
+          <span class="rc-tag">RECALIBRATION PATHWAYS</span>
+          <p class="card-subtitle">Actions that could shift your trajectory.</p>
+          <ul class="advice-list" id="advice-list"></ul>
+        </div>
+
+        <!-- Oracle Observation -->
+        <div class="glass-card result-card wide-card observation-card" id="rc-observation">
+          <span class="rc-tag">ORACLE OBSERVATION</span>
+          <p class="trajectory-phrase" id="trajectory-phrase">—</p>
+          <blockquote class="ai-observation" id="ai-observation">—</blockquote>
+          <p class="archetype-insight" id="archetype-insight">—</p>
+        </div>
+
+      </div>
+
+      <!-- SHARE CARD (minimal, separate) -->
+      <div class="share-section">
+        <h3 class="share-title">Share Your Trajectory</h3>
+        <div class="share-card-preview" id="share-card">
+          <div class="share-card-inner">
+            <div class="share-logo">MORTIS</div>
+            <div class="share-subject" id="share-subject">—</div>
+            <div class="share-date" id="share-date">—</div>
+            <div class="share-stats">
+              <div class="share-stat">
+                <span class="share-stat-label">Stress Index</span>
+                <span class="share-stat-value" id="share-stress">—</span>
+              </div>
+              <div class="share-stat">
+                <span class="share-stat-label">Est. Lifespan</span>
+                <span class="share-stat-value" id="share-lifespan">—</span>
+              </div>
+              <div class="share-stat">
+                <span class="share-stat-label">Archetype</span>
+                <span class="share-stat-value" id="share-archetype">—</span>
+              </div>
+            </div>
+            <div class="share-quote" id="share-quote">—</div>
+            <div class="share-disclaimer">Fictional simulation · Not medical advice · <span id="share-url">WEBSITE_URL_HERE</span></div>
+          </div>
+        </div>
+        <div class="share-actions">
+          <button class="btn-primary" id="btn-share">
+            <span>↗ Share Result</span>
+          </button>
+          <button class="btn-secondary" id="btn-download-card">↓ Download Card</button>
+          <button class="btn-ghost" id="btn-retake">↺ Retake Examination</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SCRIPTS ─────────────────────────────────────────────── -->
+  <script src="/js/particles.js"></script>
+  <script src="/js/audio.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
