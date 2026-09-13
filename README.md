@@ -1,26 +1,28 @@
-# MORTIS
+# MORTIS // HUE ASSESSMENT
 
-MORTIS is an atmospheric AI-powered **fictional lifespan trajectory simulator**. It turns lifestyle and behavioral inputs into a cinematic, entertainment-focused analysis experience.
+MORTIS is an unofficial, fan-made **Psycho-Pass-inspired psychological simulation**. It turns a short behavioral questionnaire into a fictional Crime Coefficient, Hue status, archetype and system classification.
 
-> MORTIS does not predict real death dates, diagnose medical conditions, or provide medical advice.
+> **Important:** MORTIS is entertainment. Its scores are fictional game metrics, not psychological diagnoses, scientific measurements, or predictions of criminal behavior.
 
 ## Experience
 
-- Cinematic dark/graveyard-inspired interface
-- One-question-at-a-time examination flow
-- Adaptive AI-style analysis
-- Fictional lifespan trajectory and personality observations
-- Shareable result cards
-- Local session persistence
-- Responsive mobile experience
+- Sibyl-inspired terminal interface
+- 14-question psychological assessment
+- Deterministic Crime Coefficient scoring
+- Hue stability calculation
+- Psychological vector breakdown
+- Dominant archetype classification
+- Shareable result text
+- Mobile-first responsive design
+- No account required
+- Results may be kept locally in the browser
 
 ## Stack
 
 - HTML / CSS / Vanilla JavaScript
 - Node.js / Express
-- Groq API
-- localStorage
-- Vercel
+- Vercel-compatible deployment
+- No external AI API required for the core scan
 
 ## Run locally
 
@@ -29,11 +31,13 @@ npm install
 npm run dev
 ```
 
-Create `.env` with the AI credentials expected by the server. Never commit API keys.
+## Support
 
-## Disclaimer
+The site includes a small support CTA. Add your preferred donation URL to the `#support-link` element in `views/index.html` before publishing it.
 
-MORTIS is fictional entertainment and should not be used for medical, psychological, or life-or-death decisions.
+## Fan-project notice
+
+MORTIS is an unofficial fan project and is **not affiliated with, endorsed by, or sponsored by the Psycho-Pass production committee, Production I.G, or other rights holders**. Psycho-Pass is the property of its respective rights holders.
 
 ## Status
 
