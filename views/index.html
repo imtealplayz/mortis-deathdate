@@ -12,63 +12,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/hue-enhancements.css">
 </head>
 <body>
-  <div class="scanlines"></div>
-  <div class="noise"></div>
-  <header class="topbar">
-    <div class="brand"><span class="brand-mark">M</span><span>MORTIS</span><small>// HUE ASSESSMENT</small></div>
-    <div class="status"><i></i> SYSTEM ONLINE</div>
-  </header>
+  <div class="scanlines"></div><div class="noise"></div>
+  <header class="topbar"><div class="brand"><span class="brand-mark">M</span><span>MORTIS</span><small>// HUE ASSESSMENT</small></div><div class="status"><i></i> SYSTEM ONLINE</div></header>
   <main>
-    <section id="landing" class="screen active">
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow">UNOFFICIAL FAN-MADE SIMULATION · v3.1</div>
-          <h1>WHAT WOULD<br><span>SIBYL SEE</span><br>IN YOU?</h1>
-          <p class="hero-text">A psychological assessment inspired by the world of <em>PSYCHO-PASS</em>. Answer naturally: choose a response or write what you would actually say. The system calculates a simulated Crime Coefficient, Hue stability and classification.</p>
-          <button class="primary" id="start">INITIALIZE SCAN <b>→</b></button>
-          <p class="micro">No account. No tracking profile. Your answers are used only for this session.</p>
-        </div>
-        <div class="hero-console">
-          <div class="console-head"><span>SIBYL NETWORK</span><span>CONNECTED</span></div>
-          <div class="reticle"><div class="reticle-ring r1"></div><div class="reticle-ring r2"></div><div class="reticle-cross"></div><div class="reticle-dot"></div></div>
-          <div class="console-readout"><span>PSYCHO-PASS</span><strong>AWAITING SUBJECT</strong><small>NEURAL PATTERN INPUT: --</small></div>
-        </div>
-      </div>
-      <div class="feature-row"><div><b>01</b><span>PSYCHOLOGICAL<br>PROFILE</span></div><div><b>02</b><span>CRIME<br>COEFFICIENT</span></div><div><b>03</b><span>HUE<br>STABILITY</span></div><div><b>04</b><span>FINAL<br>CLASSIFICATION</span></div></div>
-    </section>
-    <section id="consent" class="screen">
-      <div class="panel narrow">
-        <div class="eyebrow">PROTOCOL 01 // ACKNOWLEDGMENT</div><h2>Before the scan begins.</h2>
-        <div class="warning"><strong>FICTIONAL SIMULATION</strong><p>This is a fan-made entertainment experience. The Crime Coefficient and Hue generated here are fictional metrics, not psychological diagnoses, scientific measurements or predictions of criminal behavior.</p></div>
-        <div class="warning"><strong>PRIVATE BY DESIGN</strong><p>Your answers are processed to calculate this session's result. The site does not require an account.</p></div>
-        <label class="check"><input type="checkbox" id="agree"><span>I understand that this is a fictional simulation and not a real psychological assessment.</span></label>
-        <button class="primary" id="continue" disabled>ACCEPT & CONTINUE <b>→</b></button>
-      </div>
-    </section>
-    <section id="identity" class="screen">
-      <div class="panel narrow"><div class="eyebrow">PROTOCOL 02 // SUBJECT IDENTIFICATION</div><h2>Identify the subject.</h2><p class="muted">Use a nickname or leave it blank. This is only displayed on your result.</p><input class="text-input" id="name" maxlength="24" placeholder="SUBJECT ALIAS" autocomplete="off"><button class="primary" id="begin-test">BEGIN ASSESSMENT <b>→</b></button></div>
-    </section>
-    <section id="assessment" class="screen">
-      <div class="assessment-wrap">
-        <div class="assessment-head"><div><span class="eyebrow">SIBYL // LIVE ASSESSMENT</span><span id="q-counter">01 / 14</span></div><div class="progress"><i id="progress"></i></div></div>
-        <div class="question-panel"><div class="q-index" id="q-index">01</div><div class="q-content"><div class="eyebrow" id="q-domain">EMOTIONAL REGULATION</div><h2 id="q-text"></h2><p id="q-sub"></p><div id="answers" class="answers"></div><div class="free-response"><div class="free-response-head"><span>OR ANSWER IN YOUR OWN WORDS</span><small>Optional · written responses are scored too</small></div><textarea id="free-answer" rows="5" maxlength="500" placeholder="Tell the system what you would actually do, think, or feel..."></textarea><div class="free-response-foot"><span id="free-hint">Choose an option above, or use this field instead.</span><span id="free-count">0 / 500</span></div></div></div></div>
-        <div class="assessment-nav"><button class="ghost" id="back">← BACK</button><button class="primary" id="next">NEXT <b>→</b></button></div>
-      </div>
-    </section>
+    <section id="landing" class="screen active"><div class="hero-grid"><div class="hero-copy"><div class="eyebrow">UNOFFICIAL FAN-MADE SIMULATION · v3.1</div><h1>WHAT WOULD<br><span>SIBYL SEE</span><br>IN YOU?</h1><p class="hero-text">A psychological assessment inspired by the world of <em>PSYCHO-PASS</em>. Answer naturally: choose a response or write what you would actually say. The system calculates a simulated Crime Coefficient, Hue stability and classification.</p><button class="primary" id="start">INITIALIZE SCAN <b>→</b></button><p class="micro">No account. No tracking profile. Your answers are used only for this session.</p></div><div class="hero-console"><div class="console-head"><span>SIBYL NETWORK</span><span>CONNECTED</span></div><div class="reticle"><div class="reticle-ring r1"></div><div class="reticle-ring r2"></div><div class="reticle-cross"></div><div class="reticle-dot"></div></div><div class="console-readout"><span>PSYCHO-PASS</span><strong>AWAITING SUBJECT</strong><small>NEURAL PATTERN INPUT: --</small></div></div></div><div class="feature-row"><div><b>01</b><span>PSYCHOLOGICAL<br>PROFILE</span></div><div><b>02</b><span>CRIME<br>COEFFICIENT</span></div><div><b>03</b><span>HUE<br>STABILITY</span></div><div><b>04</b><span>FINAL<br>CLASSIFICATION</span></div></div></section>
+    <section id="consent" class="screen"><div class="panel narrow"><div class="eyebrow">PROTOCOL 01 // ACKNOWLEDGMENT</div><h2>Before the scan begins.</h2><div class="warning"><strong>FICTIONAL SIMULATION</strong><p>This is a fan-made entertainment experience. The Crime Coefficient and Hue generated here are fictional metrics, not psychological diagnoses, scientific measurements or predictions of criminal behavior.</p></div><div class="warning"><strong>PRIVATE BY DESIGN</strong><p>Your answers are processed to calculate this session's result. The site does not require an account.</p></div><label class="check"><input type="checkbox" id="agree"><span>I understand that this is a fictional simulation and not a real psychological assessment.</span></label><button class="primary" id="continue" disabled>ACCEPT & CONTINUE <b>→</b></button></div></section>
+    <section id="identity" class="screen"><div class="panel narrow"><div class="eyebrow">PROTOCOL 02 // SUBJECT IDENTIFICATION</div><h2>Identify the subject.</h2><p class="muted">Use a nickname or leave it blank. This is only displayed on your result.</p><input class="text-input" id="name" maxlength="24" placeholder="SUBJECT ALIAS" autocomplete="off"><button class="primary" id="begin-test">BEGIN ASSESSMENT <b>→</b></button></div></section>
+    <section id="assessment" class="screen"><div class="assessment-wrap"><div class="assessment-head"><div><span class="eyebrow">SIBYL // LIVE ASSESSMENT</span><span id="q-counter">01 / 14</span></div><div class="progress"><i id="progress"></i></div></div><div class="question-panel"><div class="q-index" id="q-index">01</div><div class="q-content"><div class="eyebrow" id="q-domain">EMOTIONAL REGULATION</div><h2 id="q-text"></h2><p id="q-sub"></p><div id="answers" class="answers"></div><div class="free-response"><div class="free-response-head"><span>OR ANSWER IN YOUR OWN WORDS</span><small>Optional · written responses are scored too</small></div><textarea id="free-answer" rows="5" maxlength="500" placeholder="Tell the system what you would actually do, think, or feel..."></textarea><div class="free-response-foot"><span id="free-hint">Choose an option above, or use this field instead.</span><span id="free-count">0 / 500</span></div></div></div></div><div class="assessment-nav"><button class="ghost" id="back">← BACK</button><button class="primary" id="next">NEXT <b>→</b></button></div></div></section>
     <section id="processing" class="screen"><div class="processing"><div class="orb"><span></span></div><div class="eyebrow">SIBYL ANALYSIS ENGINE</div><h2 id="process-title">READING PSYCHOLOGICAL PATTERNS</h2><p id="process-line">Synchronizing response vectors...</p><div class="process-track"><i id="process-bar"></i></div><small>DO NOT INTERRUPT THE SCAN</small></div></section>
-    <section id="result" class="screen result-screen">
-      <div class="result-wrap">
-        <div class="result-top"><div><div class="eyebrow">SIBYL SYSTEM // ASSESSMENT COMPLETE</div><h2 id="result-subject">SUBJECT // UNKNOWN</h2></div><div class="clearance" id="clearance">SCAN COMPLETE</div></div>
-        <div class="result-hero"><div class="coefficient"><span>CRIME COEFFICIENT</span><strong id="coefficient">000.0</strong><small id="coefficient-label">WITHIN NORMAL PARAMETERS</small></div><div class="hue-card" id="hue-card"><div class="hue-orb" id="hue-orb"></div><span>HUE STATUS</span><strong id="hue">CLEAR</strong><small id="hue-desc">Psychological chroma remains stable.</small></div><div class="classification"><span>CLASSIFICATION</span><strong id="classification">—</strong><p id="classification-copy">—</p></div></div>
-        <div class="result-grid"><article><span class="eyebrow">SYSTEM OBSERVATION</span><h3 id="headline">—</h3><p id="observation">—</p></article><article><span class="eyebrow">PSYCHOLOGICAL VECTOR</span><div id="vectors" class="vectors"></div></article><article><span class="eyebrow">DOMINANT ARCHETYPE</span><h3 id="archetype">—</h3><p id="archetype-copy">—</p></article><article><span class="eyebrow">SYSTEM NOTE</span><p id="system-note">—</p></article></div>
-        <div class="share-panel"><div><span class="eyebrow">RESULT READY</span><h3>Would Sibyl classify you?</h3><p>Copy the result or download a shareable scan card.</p></div><div class="share-actions"><button class="secondary" id="copy">COPY RESULT</button><button class="secondary" id="download">DOWNLOAD RESULT</button><button class="primary" id="restart">RUN AGAIN <b>↻</b></button></div></div>
-        <div class="support"><span>Enjoyed the scan?</span><a id="support-link" href="#" target="_blank" rel="noopener">☕ SUPPORT THE PROJECT</a><small>Unofficial fan project · Not affiliated with the Psycho-Pass production committee.</small></div>
-      </div>
-    </section>
-  </main>
-  <footer><span>MORTIS // HUE ASSESSMENT</span><span>FICTIONAL · FOR ENTERTAINMENT</span></footer>
-  <script src="/js/app.js"></script>
-</body>
-</html>
+    <section id="result" class="screen result-screen"><div class="result-wrap"><div class="result-top"><div><div class="eyebrow">SIBYL SYSTEM // ASSESSMENT COMPLETE</div><h2 id="result-subject">SUBJECT // UNKNOWN</h2></div><div class="clearance" id="clearance">SCAN COMPLETE</div></div><div class="result-hero"><div class="coefficient"><span>CRIME COEFFICIENT</span><strong id="coefficient">000.0</strong><small id="coefficient-label">WITHIN NORMAL PARAMETERS</small></div><div class="hue-card" id="hue-card"><div class="hue-orb" id="hue-orb"></div><span>HUE STATUS</span><strong id="hue">CLEAR</strong><small id="hue-desc">Psychological chroma remains stable.</small></div><div class="classification"><span>CLASSIFICATION</span><strong id="classification">—</strong><p id="classification-copy">—</p></div></div><div class="result-grid"><article><span class="eyebrow">SYSTEM OBSERVATION</span><h3 id="headline">—</h3><p id="observation">—</p></article><article><span class="eyebrow">PSYCHOLOGICAL VECTOR</span><div id="vectors" class="vectors"></div></article><article><span class="eyebrow">DOMINANT ARCHETYPE</span><h3 id="archetype">—</h3><p id="archetype-copy">—</p></article><article><span class="eyebrow">SYSTEM NOTE</span><p id="system-note">—</p></article></div><div class="share-panel"><div><span class="eyebrow">RESULT READY</span><h3>Would Sibyl classify you?</h3><p>Copy the result or download a shareable scan card.</p></div><div class="share-actions"><button class="secondary" id="copy">COPY RESULT</button><button class="secondary" id="download">DOWNLOAD RESULT</button><button class="primary" id="restart">RUN AGAIN <b>↻</b></button></div></div><div class="support"><span>Enjoyed the scan?</span><a id="support-link" href="#" target="_blank" rel="noopener">☕ SUPPORT THE PROJECT</a><small>Unofficial fan project · Not affiliated with the Psycho-Pass production committee.</small></div></div></section>
+  </main><footer><span>MORTIS // HUE ASSESSMENT</span><span>FICTIONAL · FOR ENTERTAINMENT</span></footer><script src="/js/app.js"></script>
+</body></html>
